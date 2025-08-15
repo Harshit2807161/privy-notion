@@ -15,7 +15,7 @@ Privy Notion allows multiple users to edit the same document simultaneously whil
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Frontend:** Next.js, TypeScript, Tailwind CSS, shadcn/ui
 - **Backend:** Node.js, Express, Socket.IO
