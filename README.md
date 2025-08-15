@@ -1,11 +1,76 @@
-# privy-notion
-A collaborative text-editing workspace with real-time editing using socket.io. 
+# Privy Notion
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+A **collaborative text-editing workspace** with **real-time editing** powered by [Socket.IO](https://socket.io/) and [Next.js](https://nextjs.org/).  
+Privy Notion allows multiple users to edit the same document simultaneously while seeing each other’s changes and cursor positions live.
+
+---
+
+## Features
+
+- **Real-time Collaboration** – Multiple users can edit the same document in sync.
+- **Live Cursor Tracking** – See where collaborators are typing in real time.
+- **Room-based Editing** – Separate collaborative spaces for different files.
+- **Modern UI** – Styled with [Tailwind CSS](https://tailwindcss.com/) and [shadcn/ui](https://ui.shadcn.com/).
+- **Optimized Performance** – Built with Next.js and efficient socket event handling.
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend:** Next.js, TypeScript, Tailwind CSS, shadcn/ui
+- **Backend:** Node.js, Express, Socket.IO
+- **State Management:** Central app state
+- **Styling:** Tailwind with extended theme colors
+- **Linting:** ESLint with `next/core-web-vitals` rules
+
+---
+
+## Project Structure
+
+```
+
+privy-notion/
+├── app/                 # Next.js app directory
+├── components/          # Reusable UI components
+├── server.js            # Socket.IO + Express backend server
+├── tailwind.config.js   # Tailwind CSS configuration
+├── postcss.config.mjs   # PostCSS setup
+├── next.config.mjs      # Next.js config
+└── todo.txt             # Pending tasks
+
+````
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1️. Clone the Repository
+```bash
+git clone https://github.com/yourusername/privy-notion.git
+cd privy-notion
+````
+
+### 2️. Install Dependencies
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+### 3️. Start the Socket.IO Server
+
+In a separate terminal:
+
+```bash
+node server.js
+```
+
+The server will run on **[http://localhost:4000](http://localhost:4000)**.
+
+### 4️. Start the Next.js Development Server
 
 ```bash
 npm run dev
@@ -17,23 +82,36 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Environment Variables
 
-## Learn More
+Make sure to set up any required environment variables in a `.env` file.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## DEV Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+* This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to optimize Google Fonts.
+* Tailwind CSS is configured with custom color palettes and animations in `tailwind.config.js`.
+* The backend (`server.js`) manages:
 
-## Deploy on Vercel
+  * Room creation and joining
+  * Broadcasting changes to all clients in a room
+  * Cursor movement synchronization
+  * User join/leave events
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Deployment
+
+The easiest way to deploy your Next.js app is via [Vercel](https://vercel.com/).
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
